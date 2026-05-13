@@ -10,18 +10,18 @@ type NodePoint = {
 }
 
 const nodePoints: NodePoint[] = [
-  { position: [-1.48, 0.44, 0.24], radius: 0.13, color: '#7DA5E7', halo: '#8BB8FF' },
-  { position: [-0.92, 1.04, -0.28], radius: 0.09, color: '#BFAFFF', halo: '#D5C7FF' },
-  { position: [-0.22, 0.68, 0.58], radius: 0.1, color: '#8BB8FF', halo: '#8BB8FF' },
-  { position: [0.55, 1.04, 0.04], radius: 0.12, color: '#66C8BA', halo: '#78D6C6' },
-  { position: [1.26, 0.42, -0.22], radius: 0.12, color: '#7DA5E7', halo: '#8BB8FF' },
-  { position: [1.04, -0.38, 0.42], radius: 0.09, color: '#BFAFFF', halo: '#D5C7FF' },
-  { position: [0.36, -1.0, -0.18], radius: 0.12, color: '#6CCCBC', halo: '#78D6C6' },
-  { position: [-0.58, -0.86, 0.3], radius: 0.1, color: '#BFAFFF', halo: '#D5C7FF' },
-  { position: [-1.2, -0.34, -0.36], radius: 0.1, color: '#66C8BA', halo: '#78D6C6' },
+  { position: [-1.48, 0.44, 0.24], radius: 0.13, color: '#6FA7FF', halo: '#77ADFF' },
+  { position: [-0.92, 1.04, -0.28], radius: 0.09, color: '#D0B4FF', halo: '#CDB2FF' },
+  { position: [-0.22, 0.68, 0.58], radius: 0.1, color: '#77ADFF', halo: '#77ADFF' },
+  { position: [0.55, 1.04, 0.04], radius: 0.12, color: '#58DCCA', halo: '#58DCCA' },
+  { position: [1.26, 0.42, -0.22], radius: 0.12, color: '#7DB5FF', halo: '#77ADFF' },
+  { position: [1.04, -0.38, 0.42], radius: 0.09, color: '#CDB2FF', halo: '#CDB2FF' },
+  { position: [0.36, -1.0, -0.18], radius: 0.12, color: '#58DCCA', halo: '#58DCCA' },
+  { position: [-0.58, -0.86, 0.3], radius: 0.1, color: '#CDB2FF', halo: '#CDB2FF' },
+  { position: [-1.2, -0.34, -0.36], radius: 0.1, color: '#58DCCA', halo: '#58DCCA' },
   { position: [-0.08, -0.08, 0.18], radius: 0.15, color: '#171A20', halo: '#8BB8FF' },
-  { position: [0.55, 0.1, -0.58], radius: 0.08, color: '#E9C46A', halo: '#E9C46A' },
-  { position: [-0.34, 0.18, -0.72], radius: 0.08, color: '#66C8BA', halo: '#78D6C6' },
+  { position: [0.55, 0.1, -0.58], radius: 0.08, color: '#EFC85C', halo: '#EFC85C' },
+  { position: [-0.34, 0.18, -0.72], radius: 0.08, color: '#58DCCA', halo: '#58DCCA' },
 ]
 
 const edges = [
@@ -75,24 +75,24 @@ function NeuralSculpture() {
     <group ref={group}>
       <mesh position={[-0.35, 0.26, -1.05]} scale={[1.45, 1.1, 0.14]}>
         <sphereGeometry args={[1, 48, 48]} />
-        <meshStandardMaterial color="#8BB8FF" transparent opacity={0.12} roughness={0.5} depthWrite={false} />
+        <meshBasicMaterial color="#77ADFF" transparent opacity={0.23} depthWrite={false} />
       </mesh>
       <mesh position={[0.7, -0.24, -0.92]} scale={[1.05, 0.9, 0.12]}>
         <sphereGeometry args={[1, 48, 48]} />
-        <meshStandardMaterial color="#78D6C6" transparent opacity={0.12} roughness={0.5} depthWrite={false} />
+        <meshBasicMaterial color="#58DCCA" transparent opacity={0.22} depthWrite={false} />
       </mesh>
       <mesh position={[-0.08, -0.62, -0.82]} scale={[0.92, 0.82, 0.12]}>
         <sphereGeometry args={[1, 48, 48]} />
-        <meshStandardMaterial color="#D5C7FF" transparent opacity={0.13} roughness={0.5} depthWrite={false} />
+        <meshBasicMaterial color="#CDB2FF" transparent opacity={0.24} depthWrite={false} />
       </mesh>
 
       <mesh ref={ringOne} rotation={[1.16, 0.16, -0.38]}>
         <torusGeometry args={[1.72, 0.01, 10, 160]} />
-        <meshBasicMaterial color="#9EADC1" transparent opacity={0.18} depthWrite={false} />
+        <meshBasicMaterial color="#9DABBC" transparent opacity={0.28} depthWrite={false} />
       </mesh>
       <mesh ref={ringTwo} rotation={[0.58, 1.18, 0.24]}>
         <torusGeometry args={[1.42, 0.01, 10, 160]} />
-        <meshBasicMaterial color="#78D6C6" transparent opacity={0.14} depthWrite={false} />
+        <meshBasicMaterial color="#58DCCA" transparent opacity={0.22} depthWrite={false} />
       </mesh>
 
       {edges.map(([from, to]) => (
@@ -119,8 +119,8 @@ function EdgeTube({ from, to }: { from: [number, number, number]; to: [number, n
 
   return (
     <mesh position={edge.midpoint} quaternion={edge.quaternion}>
-      <cylinderGeometry args={[0.011, 0.011, edge.length, 12]} />
-      <meshStandardMaterial color="#8EA1B7" transparent opacity={0.5} roughness={0.42} />
+      <cylinderGeometry args={[0.012, 0.012, edge.length, 12]} />
+      <meshBasicMaterial color="#91A4BA" transparent opacity={0.64} />
     </mesh>
   )
 }
@@ -138,15 +138,15 @@ function Node({ node, index }: { node: NodePoint; index: number }) {
     <group ref={ref} position={node.position}>
       <mesh>
         <sphereGeometry args={[node.radius * 2.35, 32, 32]} />
-        <meshBasicMaterial color={node.halo} transparent opacity={0.13} depthWrite={false} />
+        <meshBasicMaterial color={node.halo} transparent opacity={0.2} depthWrite={false} />
       </mesh>
       <mesh>
         <sphereGeometry args={[node.radius, 32, 32]} />
-        <meshStandardMaterial color={node.color} roughness={0.2} metalness={0.06} emissive={node.color} emissiveIntensity={0.12} />
+        <meshBasicMaterial color={node.color} />
       </mesh>
       <mesh position={[-node.radius * 0.26, node.radius * 0.35, node.radius * 0.62]}>
         <sphereGeometry args={[node.radius * 0.25, 16, 16]} />
-        <meshBasicMaterial color="#FFFFFF" transparent opacity={0.42} />
+        <meshBasicMaterial color="#FFFFFF" transparent opacity={0.72} />
       </mesh>
     </group>
   )
@@ -158,8 +158,8 @@ export default function HeroCanvas() {
       <Canvas dpr={[1, 1.65]} camera={{ position: [0, 0, 5.35], fov: 38 }} gl={{ antialias: true, alpha: true }}>
         <ambientLight intensity={1.55} />
         <pointLight position={[-3, 3.5, 4]} intensity={4.6} color="#ffffff" />
-        <pointLight position={[3, 1, 2]} intensity={2.8} color="#8BB8FF" />
-        <pointLight position={[1.6, -2.5, 2]} intensity={2.1} color="#78D6C6" />
+        <pointLight position={[3, 1, 2]} intensity={2.8} color="#77ADFF" />
+        <pointLight position={[1.6, -2.5, 2]} intensity={2.1} color="#58DCCA" />
         <NeuralSculpture />
       </Canvas>
     </div>

@@ -8,18 +8,18 @@
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-  --cloud: #f7f8f6;
+  --cloud: #fbfcfa;
   --snow: #ffffff;
-  --mist: #e8eef2;
-  --line: #dce3e7;
+  --mist: #edf3f7;
+  --line: #dbe5ec;
   --ink: #16181d;
   --muted: #66717d;
   --soft: #88919b;
-  --blue: #8bb8ff;
-  --teal: #78d6c6;
-  --plum: #d5c7ff;
-  --gold: #e9c46a;
-  --green: #9bd7b3;
+  --blue: #77adff;
+  --teal: #58dcca;
+  --plum: #cdb2ff;
+  --gold: #efc85c;
+  --green: #8fdda9;
 }
 
 * {
@@ -43,8 +43,8 @@ body {
   margin: 0;
   overflow-x: hidden;
   background:
-    radial-gradient(circle at 78% 4%, rgba(139, 184, 255, 0.2), transparent 28rem),
-    linear-gradient(180deg, #fbfcfa 0%, var(--cloud) 28rem, #f4f6f4 100%);
+    radial-gradient(circle at 78% 4%, rgba(119, 173, 255, 0.26), transparent 28rem),
+    linear-gradient(180deg, #ffffff 0%, var(--cloud) 28rem, #f6f8f6 100%);
 }
 
 a {
@@ -182,9 +182,9 @@ main {
   height: 38rem;
   pointer-events: none;
   background:
-    radial-gradient(circle at 35% 30%, rgba(139, 184, 255, 0.32), transparent 30%),
-    radial-gradient(circle at 64% 56%, rgba(120, 214, 198, 0.22), transparent 32%),
-    radial-gradient(circle at 48% 72%, rgba(213, 199, 255, 0.24), transparent 28%);
+    radial-gradient(circle at 35% 30%, rgba(119, 173, 255, 0.38), transparent 30%),
+    radial-gradient(circle at 64% 56%, rgba(88, 220, 202, 0.28), transparent 32%),
+    radial-gradient(circle at 48% 72%, rgba(205, 178, 255, 0.28), transparent 28%);
   filter: blur(34px);
 }
 
@@ -203,18 +203,28 @@ main {
   text-transform: uppercase;
 }
 
-.hero-content h1 {
+.hero-name {
   max-width: 760px;
   margin: 0;
-  font-size: clamp(3.45rem, 6.2vw, 5.95rem);
+  font-size: clamp(4.2rem, 8.6vw, 8.4rem);
   font-weight: 760;
   letter-spacing: 0;
-  line-height: 0.98;
+  line-height: 0.92;
+}
+
+.hero-title {
+  max-width: 720px;
+  margin: 1.8rem 0 0;
+  color: var(--ink);
+  font-size: clamp(2.15rem, 4.1vw, 4.2rem);
+  font-weight: 740;
+  letter-spacing: 0;
+  line-height: 1.02;
 }
 
 .hero-summary {
   max-width: 650px;
-  margin: 2.1rem 0 0;
+  margin: 1.7rem 0 0;
   color: var(--muted);
   font-size: clamp(1.08rem, 1.9vw, 1.36rem);
   line-height: 1.58;
@@ -253,7 +263,29 @@ main {
   min-height: 34rem;
 }
 
+.hero-object::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(37vw, 31rem);
+  height: min(37vw, 31rem);
+  min-width: 24rem;
+  min-height: 24rem;
+  content: "";
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at 38% 28%, rgba(119, 173, 255, 0.18), transparent 26%),
+    radial-gradient(circle at 66% 60%, rgba(88, 220, 202, 0.16), transparent 30%),
+    rgba(255, 255, 255, 0.92);
+  box-shadow:
+    0 44px 100px rgba(87, 119, 154, 0.15),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.72);
+  transform: translate(-50%, -50%);
+}
+
 .hero-canvas {
+  position: relative;
+  z-index: 1;
   width: min(40vw, 34.5rem);
   height: min(40vw, 34.5rem);
   min-width: 26rem;
@@ -263,6 +295,8 @@ main {
 }
 
 .hero-canvas-fallback {
+  position: relative;
+  z-index: 1;
   width: min(40vw, 34.5rem);
   height: min(40vw, 34.5rem);
   min-width: 26rem;
@@ -392,17 +426,17 @@ main {
 
 .accent-blue {
   --accent: var(--blue);
-  --accent-soft: rgba(139, 184, 255, 0.28);
+  --accent-soft: rgba(119, 173, 255, 0.34);
 }
 
 .accent-teal {
   --accent: var(--teal);
-  --accent-soft: rgba(120, 214, 198, 0.28);
+  --accent-soft: rgba(88, 220, 202, 0.32);
 }
 
 .accent-plum {
   --accent: var(--plum);
-  --accent-soft: rgba(213, 199, 255, 0.34);
+  --accent-soft: rgba(205, 178, 255, 0.38);
 }
 
 .accent-gold {
@@ -560,7 +594,7 @@ main {
   margin-top: 8.4rem;
   padding: 7rem max(24px, calc((100vw - 1280px) / 2)) 7.5rem;
   background:
-    radial-gradient(circle at 78% 24%, rgba(139, 184, 255, 0.18), transparent 24rem),
+    radial-gradient(circle at 78% 24%, rgba(119, 173, 255, 0.24), transparent 24rem),
     linear-gradient(180deg, #eef2f1 0%, #f4f6f4 100%);
 }
 
@@ -883,8 +917,12 @@ footer a {
     padding: 2.5rem 0 4.8rem;
   }
 
-  .hero-content h1 {
-    font-size: clamp(2.7rem, 12.2vw, 3.25rem);
+  .hero-name {
+    font-size: clamp(4rem, 16vw, 5.4rem);
+  }
+
+  .hero-title {
+    font-size: clamp(2.35rem, 10.6vw, 3.35rem);
   }
 
   .project-grid {
@@ -979,6 +1017,13 @@ footer a {
     height: min(72vw, 26rem);
     min-width: 17.5rem;
     min-height: 17.5rem;
+  }
+
+  .hero-object::before {
+    width: min(74vw, 25rem);
+    height: min(74vw, 25rem);
+    min-width: 17rem;
+    min-height: 17rem;
   }
 
   .hero-summary {

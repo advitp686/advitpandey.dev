@@ -234,7 +234,8 @@ function App() {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         >
           <p className="eyebrow">AI/ML Developer - GenAI - Agentic AI</p>
-          <h1>Building useful AI systems from models, tools, and feedback loops.</h1>
+          <h1 className="hero-name">Advit Pandey</h1>
+          <p className="hero-title">Building useful AI systems from models, tools, and feedback loops.</p>
           <p className="hero-summary">
             I am a Computer Science and Data Analytics student at IIT Patna on the BS degree track, focused on GenAI
             engineering, agentic workflows, local LLMs, and applied machine learning systems.
